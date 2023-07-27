@@ -1,16 +1,17 @@
+import time
+
 from pynput.keyboard import Key, Listener
 
-from logWriter import toTxt
+import LogWriter
 
+class KeyboardListener:
 
-def on_press(key):
-    print(key)
+    def on_press(key):
+        print(key)
 
-def on_release(key):
-    print(key)
-    if key == Key.esc:
-        # 停止监听
-        return False
-    elif key == Key.enter:
-        toTxt("")
-
+    def on_release(key):
+        print(key)
+        if key == Key.esc:
+            return False
+        elif key == Key.enter:
+            LogWriter.toTxt(key, time.time())
