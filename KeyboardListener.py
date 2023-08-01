@@ -1,17 +1,15 @@
 import time
 
-from pynput.keyboard import Key, Listener
+from pynput.keyboard import Key
 
-import LogWriter
+import ReportUtil
 
-class KeyboardListener:
+def on_press(key):
+    pass
 
-    def on_press(key):
-        print(key)
+def on_release(key):
+    if key == Key.esc:
+        return False
+    elif key == Key.enter:
+        return False
 
-    def on_release(key):
-        print(key)
-        if key == Key.esc:
-            return False
-        elif key == Key.enter:
-            LogWriter.toTxt(key, time.time())
